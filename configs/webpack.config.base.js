@@ -12,7 +12,7 @@ export default {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.tsx?$|js$|jsx/, // /\.js$|jsx/
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -41,6 +41,7 @@ export default {
   plugins: [
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'production',
+      API_ENTRYPOINT: 'http://localhost:8000/api',
     }),
 
     new webpack.NamedModulesPlugin(),
